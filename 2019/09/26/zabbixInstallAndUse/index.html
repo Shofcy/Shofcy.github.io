@@ -26,7 +26,7 @@
 <li><p><strong>Zabbix安装与部署</strong></p>
 </li>
 </ul>
-<h2 id="1-Zabbix介绍"><a href="#1-Zabbix介绍" class="headerlink" title="1.Zabbix介绍"></a>1.Zabbix介绍</h2><p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180521231908261-1804286883.png" alt></p>
+<h2 id="1-Zabbix介绍"><a href="#1-Zabbix介绍" class="headerlink" title="1.Zabbix介绍"></a>1.Zabbix介绍</h2><p><img src="/images/zabbixInstallAndUse/2.png" alt></p>
 <ul>
 <li><p>zabbix是一个基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案。</p>
 </li>
@@ -55,89 +55,89 @@
 <blockquote>
 <p>setenforce 0</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522105707774-641034309.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/3.png" alt></p>
 <p>永久关闭：</p>
 <blockquote>
 <p>vi /etc/selinux/config</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522105720683-1866768266.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/4.png" alt></p>
 <h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>1、临时关闭</p>
 <blockquote>
 <p>systemctl stop firewalld.service</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522105818428-472197412.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/5.png" alt></p>
 <p>2、永久关闭</p>
 <blockquote>
 <p>systemctl disable firewalld.service</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522105853920-1301192992.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/6.png" alt></p>
 <h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><h4 id="LAMP"><a href="#LAMP" class="headerlink" title="LAMP"></a>LAMP</h4><h5 id="1、安装apache"><a href="#1、安装apache" class="headerlink" title="1、安装apache"></a>1、安装apache</h5><blockquote>
 <p>yum install -y httpd</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522143248268-68752115.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/7.png" alt></p>
 <p>httpd服务开机进行自启</p>
 <blockquote>
 <p>systemctl enable httpd</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522143319075-620655721.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/8.png" alt></p>
 <p>启动httpd服务</p>
 <blockquote>
 <p>systemctl start httpd</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522143359344-1582818085.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/9.png" alt></p>
 <h5 id="2、安装mysql"><a href="#2、安装mysql" class="headerlink" title="2、安装mysql"></a>2、安装mysql</h5><p>因为7版本mysql要收费，所以我们安装mariadb</p>
 <blockquote>
 <p>yum install -y mariadb mariadb-server</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522150900666-269491742.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/10.png" alt></p>
 <p>开机自启动</p>
 <blockquote>
 <p>systemctl enable mariadb</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151005910-671529475.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/11.png" alt></p>
 <p>运行服务</p>
 <blockquote>
 <p>systemctl start mariadb</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151032470-1472284215.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/12.png" alt></p>
 <p>查看Mariadb是否安装成功</p>
 <blockquote>
 <p>mysql</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151303421-2069310910.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/13.png" alt></p>
 <h5 id="3、安装php环境"><a href="#3、安装php环境" class="headerlink" title="3、安装php环境"></a>3、安装php环境</h5><blockquote>
 <p>yum install -y php php-mysql</p>
 </blockquote>
-<p> <img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151346155-1424301657.png" alt></p>
+<p> <img src="/images/zabbixInstallAndUse/14.png" alt></p>
 <h5 id="4、安装zabbix"><a href="#4、安装zabbix" class="headerlink" title="4、安装zabbix"></a>4、安装zabbix</h5><p>(1)下载包</p>
 <blockquote>
 <p>rpm -ivh <a href="http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm" target="_blank" rel="noopener">http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm</a></p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151428204-79654950.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/15.png" alt></p>
 <p>(2)安装zabbix的包</p>
 <blockquote>
 <p>yum install -y zabbix-server-mysql zabbix-get zabbix-web zabbix-web-mysql zabbix-agent zabbix-sender</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151534483-648381831.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/16.png" alt></p>
 <h5 id="5、进入数据库，创建一个zabbix库并设置为utf8的字符编码格式"><a href="#5、进入数据库，创建一个zabbix库并设置为utf8的字符编码格式" class="headerlink" title="5、进入数据库，创建一个zabbix库并设置为utf8的字符编码格式"></a>5、进入数据库，创建一个zabbix库并设置为utf8的字符编码格式</h5><blockquote>
 <p>mysql</p>
 </blockquote>
 <blockquote>
 <p>create database zabbix character set utf8 collate utf8_bin;</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151658584-1654525958.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151709147-1237889287.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/17.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/18.png" alt></p>
 <p>创建账户并且授权设置密码</p>
 <blockquote>
 <p>grant all privileges on zabbix.* to zabbix@localhost identified by ‘zabbix’;</p>
 </blockquote>
 <p>给来自loclhost的用户zabbxi分配可对数据库zabbix所有表进行所有操作的权限，并且设定密码为zabbix</p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151815377-1855071499.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/19.png" alt></p>
 <p>刷新</p>
 <blockquote>
 <p>flush privileges;</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522151915480-1636127175.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/20.png" alt></p>
 <p>退出</p>
 <blockquote>
 <p>exit</p>
@@ -146,12 +146,12 @@
 <blockquote>
 <p>cd /usr/share/doc/zabbix-server-mysql-3.4.15/</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152013612-1287938656.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/21.png" alt></p>
 <p>进行解压</p>
 <blockquote>
 <p>gunzip create.sql.gz</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152204459-952937519.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/22.png" alt></p>
 <p>对表进行导入</p>
 <blockquote>
 <p>mysql</p>
@@ -162,14 +162,14 @@
 <blockquote>
 <p>source create.sql;</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152225396-281684237.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152233204-938432051.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152242124-1106755905.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/23.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/24.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/25.png" alt></p>
 <h5 id="7、配置zabbix-server配置文件"><a href="#7、配置zabbix-server配置文件" class="headerlink" title="7、配置zabbix server配置文件"></a>7、配置zabbix server配置文件</h5><p>配置文件目录</p>
 <blockquote>
 <p>cd /etc/zabbix</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152342375-1017230194.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/26.png" alt></p>
 <p>对zabbix_server.conf进行配置</p>
 <blockquote>
 <p>vim zabbix_server.conf</p>
@@ -177,12 +177,12 @@
 <p>修改以下配置（按 <strong>i</strong> 进行编辑，修改完成按ESC键输入 <strong>:wq!</strong> 保存并退出）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DBHost=localhost</span><br><span class="line">DBName=zabbix</span><br><span class="line">DBUser=zabbix</span><br><span class="line">DBPassword=zabbix</span><br><span class="line">DBSocket=/var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152430037-1250662666.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152459368-1618504459.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152506607-580538883.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152514559-50033819.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152521648-698832155.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152526365-1300079895.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/27.pngg" alt></p>
+<p><img src="/images/zabbixInstallAndUse/28.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/29.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/30.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/31.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/32.png" alt></p>
 <p>运行zabbix-server服务和设置开机自启zabbix-server服务</p>
 <blockquote>
 <p>systemctl enable zabbix-server.service</p>
@@ -190,21 +190,21 @@
 <blockquote>
 <p>systemctl start zabbix-server.service</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152545361-1027527525.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/33.png" alt></p>
 <h4 id="8、配置php"><a href="#8、配置php" class="headerlink" title="8、配置php"></a>8、配置php</h4><blockquote>
 <p>cd /etc/httpd/conf.d</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152631161-1326066373.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/34.png" alt></p>
 <p>配置时间</p>
 <blockquote>
 <p>vim zabbix.conf</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152656673-301918164.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/35.png" alt></p>
 <p>重启httpd</p>
 <blockquote>
 <p>systemctl restart httpd</p>
 </blockquote>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152715658-1436030328.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/36.png" alt></p>
 <p>配置代理</p>
 <blockquote>
 <p>vim /etc/zabbix/zabbix_agentd.conf</p>
@@ -221,27 +221,27 @@
 <p>systemctl restart zabbix-agent.service</p>
 </blockquote>
 <h4 id="9、登陆zabbix网址设置"><a href="#9、登陆zabbix网址设置" class="headerlink" title="9、登陆zabbix网址设置"></a>9、登陆zabbix网址设置</h4><p><a href="http://127.0.0.1/zabbix" target="_blank" rel="noopener">http://127.0.0.1/zabbix</a></p>
-<p> <img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152744159-236191631.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152755882-2013989624.png" alt></p>
+<p> <img src="/images/zabbixInstallAndUse/37.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/38.png" alt></p>
 <p>password是我们设置的数据库密码zabbix</p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152930923-254309430.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522152942910-1364425468.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153109258-1039421423.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153118862-20706032.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/39.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/40.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/41.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/42.png" alt></p>
 <p>登陆账户是Admin</p>
 <p>密码是zabbix</p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153147363-647311592.png" alt></p>
-<h4 id="10、设置中文"><a href="#10、设置中文" class="headerlink" title="10、设置中文"></a>10、设置中文</h4><p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153208310-723722622.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153215700-1471412436.png" alt></p>
-<h4 id="11、对服务器自身进行监控"><a href="#11、对服务器自身进行监控" class="headerlink" title="11、对服务器自身进行监控"></a>11、对服务器自身进行监控</h4><p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153809468-856124631.png" alt></p>
-<h4 id="12、解决中文乱码无法显示的问题"><a href="#12、解决中文乱码无法显示的问题" class="headerlink" title="12、解决中文乱码无法显示的问题"></a>12、解决中文乱码无法显示的问题</h4><p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153827881-894641129.png" alt></p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153841725-2093266939.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/43.png" alt></p>
+<h4 id="10、设置中文"><a href="#10、设置中文" class="headerlink" title="10、设置中文"></a>10、设置中文</h4><p><img src="/images/zabbixInstallAndUse/44.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/45.png" alt></p>
+<h4 id="11、对服务器自身进行监控"><a href="#11、对服务器自身进行监控" class="headerlink" title="11、对服务器自身进行监控"></a>11、对服务器自身进行监控</h4><p><img src="/images/zabbixInstallAndUse/46.png" alt></p>
+<h4 id="12、解决中文乱码无法显示的问题"><a href="#12、解决中文乱码无法显示的问题" class="headerlink" title="12、解决中文乱码无法显示的问题"></a>12、解决中文乱码无法显示的问题</h4><p><img src="/images/zabbixInstallAndUse/47.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/48.png" alt></p>
 <p>从我们电脑win7里面找到黑体右键复制到桌面然后拉到zabbix服务器上面</p>
 <p>直接修改字体名字</p>
 <p>切换到这个目录下面: /usr/share/zabbix/fonts</p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153856644-1598322562.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/49.png" alt></p>
 <p>现在的中文字体是显示正常的了</p>
-<p><img src="https://images2018.cnblogs.com/blog/872610/201805/872610-20180522153912916-748388023.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/50.png" alt></p>
 <h1 id="zabbix中添加被监控主机（分布式给多台被监控主机添加agent）"><a href="#zabbix中添加被监控主机（分布式给多台被监控主机添加agent）" class="headerlink" title="zabbix中添加被监控主机（分布式给多台被监控主机添加agent）"></a>zabbix中添加被监控主机（分布式给多台被监控主机添加agent）</h1><h2 id="第一步：主机上依次执行"><a href="#第一步：主机上依次执行" class="headerlink" title="第一步：主机上依次执行"></a>第一步：主机上依次执行</h2><p>下载包</p>
 <blockquote>
 <p>rpm -ivh <a href="http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm" target="_blank" rel="noopener">http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm</a></p>
@@ -261,9 +261,9 @@
 <p>systemctl restart zabbix-agent.service</p>
 </blockquote>
 <h1 id="添加被监控的主机"><a href="#添加被监控的主机" class="headerlink" title="添加被监控的主机"></a>添加被监控的主机</h1><p>登陆zabbix web，在配置-主机这里添加对应信息：<br> （主机名称需与上面配置的Hostname名称一致）</p>
-<p><img src="https://images2017.cnblogs.com/blog/1154889/201801/1154889-20180114200949472-1035177586.png" alt></p>
+<p><img src="/images/zabbixInstallAndUse/51.png" alt></p>
 <p>注：ZBX刚开始是灰色的，配置完监控项之后（稍等片刻等接受到数据之后）开始变绿即成功</p>
-<p><img src="https://img-blog.csdnimg.cn/20181129181216748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyODU5ODY0,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="/images/zabbixInstallAndUse/52.png" alt></p>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">晓风残月</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.octocat.top/2019/09/26/zabbixInstallAndUse/">https://blog.octocat.top/2019/09/26/zabbixInstallAndUse/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.octocat.top">晓风残月Shofcy</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux    </a><a class="post-meta__tags" href="/tags/zabbix/">zabbix    </a><a class="post-meta__tags" href="/tags/性能监控/">性能监控    </a></div><div class="post_share"><div class="social-share" data-image="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1569481660814&amp;di=47b5f0bce4c753b48880543041be75d3&amp;imgtype=0&amp;src=http%3A%2F%2Fs5.51cto.com%2Fwyfs02%2FM01%2F9E%2F0B%2FwKiom1mKnBehN9mIAACbZPgUifA082.jpg-wh_651x-s_963877849.jpg" data-sites="wechat,weibo,qq,facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-buttom"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" data-src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" data-src="/img/alipay.jpg"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/09/19/LinuxOfClamavInstallAndUse/"><img class="next_cover lozad" data-src="http://www.clamav.net/assets/clamav-trademark.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Linux下clamav杀毒软件安装与使用</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span>相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/09/19/LinuxOfClamavInstallAndUse/" title="Linux下clamav杀毒软件安装与使用"><img class="relatedPosts_cover lozad" data-src="http://www.clamav.net/assets/clamav-trademark.png"><div class="relatedPosts_title">Linux下clamav杀毒软件安装与使用</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span>评论</span></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NTc0OC8yMjI1OQ=="><script>(function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
     if (typeof LivereTower === 'function') { return; }
