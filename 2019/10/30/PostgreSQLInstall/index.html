@@ -25,7 +25,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建自定义数据库数据存放目录，这里示例为(/home/soft/pgsql/9.5/data)，注意，创建完后一定要将该文件夹及子文件夹设置为postgres用户，否则后续initdb会出问题</span><br><span class="line"><span class="meta">#</span> 修改用户权限</span><br><span class="line">chown -R postgres:postgres /home/soft/pgsql/</span><br><span class="line"><span class="meta">#</span> 编辑服务</span><br><span class="line">systemctl edit postgresql-9.5.service</span><br></pre></td></tr></table></figure>
 
 <p>增加如下内容，保存并退出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=PGDATA=/home/soft/pgsql/9.5 # 更改为你自己的目录</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=PGDATA=/home/soft/pgsql/9.5/data # 更改为你自己的目录</span><br></pre></td></tr></table></figure>
 
 <p>重新加载系统服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
